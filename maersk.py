@@ -6,6 +6,8 @@ from time import sleep
 from selenium.webdriver.common.keys import Keys
 import subprocess
 import sys
+from datetime import date, timedelta
+import calendar
 # From city and To city options : merchant_haulage or carrier_haulge
 
 def maersk(from_city, to_city, option_from_city, option_to_city, commodity, container_type, container_quantity, weight, month, day):
@@ -171,7 +173,14 @@ def maersk(from_city, to_city, option_from_city, option_to_city, commodity, cont
 
                 continue
 
+todays_date = date.today()
+two_weeks = todays_date + timedelta(weeks = 2)  
+day = two_weeks.day
+month = calendar.month_abbr[two_weeks.month]
 
+try:
+    maersk(sys.argv[1], sys.argv[2], "merchant_haulage", "merchant_haulage", "machinery", "20 DRY STANDARD", "1", "22000", str(month), str(day))
+except:
+    maersk(sys.argv[1], sys.argv[2], "merchant_haulage", "merchant_haulage", "machinery", "20 DRY STANDARD", "1", "22000", str(month), str(day))
 
-maersk(sys.argv[1], sys.argv[2], "merchant_haulage", "merchant_haulage", "machinery", "20 DRY STANDARD", "3", "23000", "May", "14")
 #maersk("chennai", "hamburg", "merchant_haulage", "merchant_haulage", "machinery", "20 DRY STANDARD", "3", "23000", "May", "14")

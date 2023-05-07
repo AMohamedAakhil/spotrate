@@ -26,7 +26,15 @@ function createWindow() {
 
 ipcMain.on('notify', (_, message) => {
     args = String(message).split("/")
-    spawn('python', ['./maersk.py', String(args[0]), String(args[1])])
+    if (args[0] == "m") {
+        spawn('python', ['./maersk.py', String(args[1]), String(args[2])])
+    } else if (args[0] == "c") {
+        spawn('python', ['./cmagcm.py', String(args[1]), String(args[2])])
+    } else if (args[0] == "h") {
+        spawn('python', ['./happag.py', String(args[1]), String(args[2])])
+    } else {
+        console.log("Invalid Keyword")
+    }
 })
     
 

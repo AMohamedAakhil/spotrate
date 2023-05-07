@@ -24,7 +24,7 @@ const BasicSearch = () => {
         <label className="label">
         <span className="label-text">Enter Command</span>
         </label>
-        <input value={search} onChange={e => setSearch(e.target.value)} type="text" placeholder="Ctrl + K" className="input input-bordered w-full mb-4" />
+        <input value={search} onChange={e => setSearch(e.target.value)} type="text" placeholder="[LINE] / [POD] / [POL]" className="input input-bordered w-full mb-4" />
         <label className="label">
         </label>
         <button type="submit" className="btn w-full">Get Rates</button>
