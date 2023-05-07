@@ -173,7 +173,7 @@ class Chrome(selenium.webdriver.chrome.webdriver.WebDriver):
             debug_addr = f"{debug_host}:{debug_port}"
 
         if not user_data_dir:
-            user_data_dir = "C:\\Users\\aaakh\\AppData\\Local\\Google\\Chrome\\User Data"
+            user_data_dir = get_chrome_user_data_dir()
 
         if not options:
             options = selenium.webdriver.chrome.webdriver.Options()
